@@ -1,50 +1,50 @@
-# Proyek GPS dan SIM800L dengan Arduino
+# GPS and SIM800L Project with Microcontroller Arduino Uno
 
-Proyek ini menggunakan modul GPS dan modul GSM SIM800L untuk mendapatkan data lokasi dan mengirimkannya melalui SMS ke nomor telepon tertentu.
+This project uses a GPS module and a GSM SIM800L module to obtain location data and send it via SMS to a specific phone number.
 
-## Deskripsi
+## Description:
 
-Kode ini dirancang untuk membaca data lokasi (latitude dan longitude) dari modul GPS dan kemudian mengirimkan data tersebut dalam bentuk tautan Google Maps melalui SMS menggunakan modul SIM800L.
+This code is designed to read location data (latitude and longitude) from the GPS module and then send the data in the form of a Google Maps link via SMS using the SIM800L module.
 
-## Fitur Utama
+## Key Features:
 
-- **Modul GPS**: Mengambil data lokasi secara real-time (latitude dan longitude).
-- **Modul GSM SIM800L**: Mengirimkan data lokasi yang diperoleh dalam bentuk tautan Google Maps ke nomor telepon yang telah ditentukan melalui SMS.
+- **GPS Module**: Retrieves real-time location data (latitude and longitude).
+- **SIM800L GSM Module**: Sends location data obtained in the form of a Google Maps link to a predetermined telephone number via SMS.
 
-## Komponen yang Dibutuhkan
+## Required Components:
 
-- Arduino (Uno, Mega, atau model lain yang kompatibel)
-- Modul GPS (misalnya, Neo-6M)
-- Modul GSM SIM800L
-- Kabel jumper
+- Arduino (Uno, Mega, or other compatible models)
+- GPS module (for example, Neo-6M)
+- GSM SIM800L module
+- Jumper cables
 
-## Cara Kerja
+## Ways of working:
 
-1. **Inisialisasi**:
-    - Modul SIM800L dan Serial Monitor diinisialisasi pada kecepatan baud 9600.
-    - Modul SIM800L diatur dalam mode pesan teks (AT+CMGF=1).
+1. **Initialization**:
+    - The SIM800L and Serial Monitor modules are initialized at a baud rate of 9600.
+    - SIM800L module is set in text message mode (AT+CMGF=1).
 
-2. **Looping Utama**:
-    - Program akan memeriksa apakah ada data yang masuk dari modul SIM800L.
-    - Jika ada data yang masuk, program akan memeriksa apakah ada perintah "ON" yang diterima melalui SMS.
-    - Jika perintah "ON" diterima, program akan mengirimkan pesan SMS yang berisi tautan Google Maps dengan lokasi saat ini.
+2. **Main Loop**:
+    - The program will check whether there is incoming data from the SIM800L module.
+    - If there is incoming data, the program will check whether there is an "ON" command received via SMS.
+    - If the "ON" command is received, the program will send an SMS message containing a Google Maps link with the current location.
 
-3. **Fungsi GPS**:
-    - Fungsi ini digunakan untuk membaca data GPS dari Serial dan mengonversinya menjadi latitude dan longitude.
-    - Tautan Google Maps dibuat berdasarkan data latitude dan longitude yang diperoleh.
+3. **GPS Function**:
+    - This function is used to read GPS data from Serial and convert it to latitude and longitude.
+    - Google Maps links are created based on the latitude and longitude data obtained.
 
-## Cara Menggunakan
+## How to Use:
 
-1. Hubungkan modul GPS dan SIM800L ke Arduino sesuai dengan pengaturan pin yang ditentukan di dalam kode.
-2. Unggah kode ini ke Arduino.
-3. Kirim SMS dengan format yang sesuai ke modul SIM800L yang terhubung dengan Arduino.
-4. Modul akan mengirimkan tautan lokasi Google Maps ke nomor yang ditentukan jika perintah yang diterima adalah "ON".
+1. Connect the GPS module and SIM800L to the Arduino according to the pin settings specified in the code.
+2. Upload this code to Arduino.
+3. Send an SMS in the appropriate format to the SIM800L module connected to the Arduino.
+4. The module will send a Google Maps location link to the specified number if the command received is “ON”.
 
-## Contoh SMS
+## Example of SMS
 
-- Untuk mengaktifkan pengiriman lokasi, kirim SMS dengan isi "ON" ke nomor yang terhubung dengan SIM800L.
+- To activate location sending, send an SMS with the content "ON" to the number connected to the SIM800L.
 
-## Catatan
+## Notes
 
-- Pastikan nomor telepon yang dimasukkan dalam kode sudah benar.
-- Modul GPS memerlukan waktu beberapa detik hingga menit untuk mengunci sinyal satelit dan memberikan data lokasi yang akurat.
+- Make sure the telephone number entered in the code is correct.
+- The GPS module takes several seconds to minutes to lock onto satellite signals and provide accurate location data.
